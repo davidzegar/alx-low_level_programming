@@ -1,23 +1,39 @@
-#include <stdlib.h>
-#include <time.h>
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - generates random valid password
- * Return: 0
+ * _atoi - prints a string, followed by a new line
+ * @s: pointer to string to print
+ * Return: nothing
  */
-int main(void)
+int _atoi(char *s)
 {
-	int sum = 0;
-	char c;
+	int index, ind2;
+	unsigned int res;
+	int sign = 1;
+	char now;
 
-	srand(time(NULL));
-	while (sum < 2772)
+	index = 0;
+	res = 0;
+	while (*(s + index) != '\0')
 	{
-		c = rand() % 94 + 33;
-		putchar(c);
-		sum += c;
+		now = *(s + index);
+		if (now == '-')
+		{
+			sign *= -1;
+		}
+		if (now >= '0' && now <= '9')
+		{
+			ind2 = index;
+			while (*(s + ind2) > 47 && *(s + ind2) < 58)
+			{
+				res = (res * 10) + *(s + ind2) - '0';
+				ind2++;
+			}
+			break;
+		}
+		index++;
 	}
-	putchar(2772 - sum);
-	return (0);
+	if (sign < 0)
+		res *= sign;
+	return (res);
 }
