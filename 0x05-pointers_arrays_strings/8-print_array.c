@@ -2,10 +2,10 @@
 #include <stdio.h>
 
 /**
- * print_array - prints an n elements of the array
- * @a: name of array
- * @n: numbers of elements in the array to be printed
- * Return: a and n inputs
+ * print_array - prints n elements of an array integers
+ * @a: input array
+ * @n: input n elements
+ * Return: 0
  */
 void print_array(int *a, int n)
 {
